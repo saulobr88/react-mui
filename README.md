@@ -16,6 +16,14 @@ Run using Vite
 
 `npm run dev`
 
+(Opcional) Executar json-server para simular uma API REST
+
+`json-server db/db.json -p 3001`
+
+## Global packages
+
+`npm i -g json-server`
+
 ## References
 
 - [Vite - Getting Started](https://vitejs.dev/guide/)
