@@ -28,5 +28,6 @@ Run using Vite
 
 - [Vite - Getting Started](https://vitejs.dev/guide/)
 - [The Net Ninja - Material UI Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gjxLvV4VEkZ6H6H4yWuS58)
+- [The Net Ninja - Material UI Repository](https://github.com/iamshaunjp/material-ui-tut)
 - [Upgrade to React Router v6](https://typescript.tv/react/upgrade-to-react-router-v6/)
 - [absolute path not working in vite project react-ts](https://stackoverflow.com/questions/68241263/absolute-path-not-working-in-vite-project-react-ts)

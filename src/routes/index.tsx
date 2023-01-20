@@ -3,10 +3,12 @@ import { Navigate } from 'react-router-dom';
 import MainLayout from 'src/layouts/MainLayout';
 import AccountLayout from 'src/layouts/AccountLayout';
 
-import NotFoundPage from '../pages/error/NotFoundPage';
-import AboutPage from '../pages/about';
+import NotFoundPage from 'src/pages/error/NotFoundPage';
+import AboutPage from 'src/pages/about';
 
 import AccountDetailPage from 'src/pages/account/detail';
+import NotesListPage from 'src/pages/notes/list';
+import NoteCreatePage from 'src/pages/notes/create';
 
 const routes = [
     {
@@ -15,7 +17,9 @@ const routes = [
         errorElement: (<div>Error Page Component</div>),
         children: [
             {path: '*', element: <Navigate to='/404' />},
-            {path: '/', element: <div>Main View</div>},
+            // {path: '/', element: <div>Main View</div>},
+            {path: '/', element: <NotesListPage />},
+            {path: '/create', element: <NoteCreatePage />},
             {path: '404', element: <NotFoundPage />},
             {path: 'account', element: <Navigate to='/account/list' />},
         ],

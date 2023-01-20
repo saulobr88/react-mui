@@ -7,10 +7,12 @@ const MainLayout: React.FC = (): JSX.Element => {
       <nav>
         <ul>
           <li><Link to='/'>Main Page</Link></li>
+          <li><Link to='/create'>Create Note</Link></li>
           <li><Link to='/account/add'>Add Account</Link></li>
           <li><Link to='/account/list'>List Accounts</Link></li>
           <li><Link to='/account/1'>View Account</Link></li>
           <li><Link to='/something-else'>Not Found</Link></li>
+          <li><Link to='/about'>Abount</Link></li>
         </ul>
       </nav>
       <Outlet />
