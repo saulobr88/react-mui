@@ -43,10 +43,56 @@
       "id": 7
     },
     {
-      "title": "Noita para salvar",
-      "details": "Corpo da nota para salvar",
-      "category": "",
+      "title": "Nota com Categoria",
+      "details": "Agora a nota possui categoria.",
+      "category": "work",
       "id": 8
+    },
+    {
+      "title": "Nova nota com teste de redirecionamento",
+      "details": "Nova nota com teste de redirecionamento.",
+      "category": "reminders",
+      "id": 9
+    },
+    {
+      "title": "New note test",
+      "details": "New note test",
+      "category": "todos",
+      "id": 10
+    },
+    {
+      "title": "New note 2",
+      "details": "New note 2",
+      "category": "",
+      "id": 11
+    },
+    {
+      "title": "New note 3",
+      "details": "Criação de nova nota agora com o redirect pelo useNavigate do react-router-dom.",
+      "category": "work",
+      "id": 12
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "money",
+      "slug": "money"
+    },
+    {
+      "id": 2,
+      "name": "To do",
+      "slug": "todos"
+    },
+    {
+      "id": 3,
+      "name": "Reminders",
+      "slug": "reminders"
+    },
+    {
+      "id": 4,
+      "name": "Work",
+      "slug": "work"
     }
   ]
 }

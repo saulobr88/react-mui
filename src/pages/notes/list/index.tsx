@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import NoteType from 'src/types/Notes';
+import NoteType from 'src/types/Note';
 
 import getNotes from 'src/services/notes/getNotes';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import NoteType from 'src/types/Notes';
+import NoteType from 'src/types/Note';
 
 interface Props {
     note: NoteType;
