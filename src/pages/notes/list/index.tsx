@@ -1,9 +1,15 @@
 import React, {useEffect, useState} from 'react';
+
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+
 import NoteType from 'src/types/Note';
-
 import getNotes from 'src/services/notes/getNotes';
-
 import NotesCard from 'src/components/Notes/NoteCard';
+
+import Copyright from 'src/components/Copyright';
+
 
 const NotesListPage: React.FC = (): JSX.Element => {
     const [notes, setNotes] = useState([] as NoteType[]);
@@ -25,16 +31,16 @@ const NotesListPage: React.FC = (): JSX.Element => {
         <>
             { loading && `Carregando as notas`}
             { !loading && notes.length === 0 && `Não há notas para exibir`}
-            { !loading && notes.length > 0 && 
-            <div>
+            { !loading && notes.length > 0 && (
                 <div>
-                    <h2>{`Notas (${notes.length})`}</h2>
+                    <div>
+                        <h2>{`Notas (${notes.length})`}</h2>
+                    </div>
+                    <div>
+                        {notes.map((el) => (<NotesCard note={el} key={el.id} /> ))}
+                    </div>
                 </div>
-                <div>
-                    {notes.map((el) => (<NotesCard note={el} key={el.id} /> ))}
-                </div>
-            </div>
-            }
+            )}
         </>
     );
 };

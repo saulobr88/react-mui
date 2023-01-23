@@ -9,6 +9,7 @@ import AboutPage from 'src/pages/about';
 import AccountDetailPage from 'src/pages/account/detail';
 import NotesListPage from 'src/pages/notes/list';
 import NoteCreatePage from 'src/pages/notes/create';
+import DashboardPage from 'src/pages/dashboard';
 
 const routes = [
     {
@@ -20,6 +21,7 @@ const routes = [
             // {path: '/', element: <div>Main View</div>},
             {path: '/', element: <NotesListPage />},
             {path: '/create', element: <NoteCreatePage />},
+            {path: '/dashboard', element: <DashboardPage />},
             {path: '404', element: <NotFoundPage />},
             {path: 'account', element: <Navigate to='/account/list' />},
         ],
