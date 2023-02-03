@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect, useRef, useState} from 'react';
 import {Link, Outlet} from 'react-router-dom';
 
 import { styled, useTheme, Theme, CSSObject } from '@mui/material/styles';
@@ -22,6 +22,7 @@ import Badge from '@mui/material/Badge';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { grey } from '@mui/material/colors';
 
 import { sideBarListA, sideBarListB } from './sideBarList';
 
@@ -103,6 +104,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const MainLayout: React.FC = (): JSX.Element => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
+  const [footerWidth, setFooterWidth] = useState(0);
+  const mainBoxRef = useRef<HTMLDivElement>(null);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -112,10 +115,16 @@ const MainLayout: React.FC = (): JSX.Element => {
     setOpen(false);
   };
 
+  useLayoutEffect(() => {
+    if (mainBoxRef.current) {
+      setFooterWidth(mainBoxRef.current.offsetWidth);
+    }
+  }, []);
+
   const menuId = 'primary-search-account-menu';
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex' }} ref={mainBoxRef}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -173,7 +182,7 @@ const MainLayout: React.FC = (): JSX.Element => {
         <Divider />
         <List>
           {sideBarListA.map((elem: any) => (
-            <ListItem key={elem.text} disablePadding sx={{ display: 'block' }} component={Link} to={elem.linkTo}>
+            <ListItem key={elem.text} disablePadding sx={{ display: 'block', color: grey[800] }} component={Link} to={elem.linkTo}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -227,7 +236,17 @@ const MainLayout: React.FC = (): JSX.Element => {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Outlet />
-        <Copyright sx={{ pt: 4 }} />
+      </Box>
+      <Box sx={{
+          display: 'flex',
+          width: `${footerWidth}px`,
+          justifyContent: 'center',
+          marginTop: 'calc(10% + 60px)',
+          background: grey[300],
+          position: 'fixed',
+          bottom: 0
+      }}>
+        <Copyright sx={{ pt: 2 }} />
       </Box>
     </Box>
   );

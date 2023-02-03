@@ -18,7 +18,7 @@ Run using Vite
 
 (Opcional) Executar json-server para simular uma API REST
 
-`json-server db/db.json -p 3001`
+`npm run db-json`
 
 ## Global packages
 

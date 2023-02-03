@@ -6,19 +6,18 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Textarea from '@mui/joy/Textarea';
+import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Button from '@mui/material/Button';
-import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { grey } from '@mui/material/colors';
 
 import NoteType from 'src/types/Note';
 import CategoryType from 'src/types/Category';
 import postNote from 'src/services/notes/postNote';
 import getCategories from 'src/services/categories/getCategories';
-
-import Copyright from 'src/components/Copyright';
 
 const defaultValues: NoteType = {
     title: '',
@@ -54,7 +53,6 @@ const NoteCreatePage: React.FC = (): JSX.Element => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        // console.log('Salvar nota ', note);
 
         postNote(note)
             .then((data) => {
@@ -96,30 +94,38 @@ const NoteCreatePage: React.FC = (): JSX.Element => {
                 />
                 </Grid>
                 <Grid item xs={12}>
-                <Textarea
-                    minRows={10}
-                    placeholder="Corpo da nota…"
-                    value={note.details}
-                    onChange={(e) => handleChange('details', e.target.value)}    
-                />
+                    <FormControl fullWidth>
+                        <TextareaAutosize
+                            placeholder='Corpo da nota...'
+                            style={{ padding: '15px', border: 'solid 1px gray' }}
+                            minRows={10}
+                            value={note.details}
+                            onChange={(e) => handleChange('details', e.target.value)}    
+                        />
+                    </FormControl>
                 </Grid>
-                <Grid item xs={9} md={9} sm={12}>
-                    <Select
-                        variant="outlined"
-                        color="primary"
-                        name="category"
-                        id="category"
-                        placeholder='Escolha a categoria'
-                        value={note.category}
-                        onChange={(e: any) => handleChange('category', e.target.value as string)}
-                    >
-                        {categories.map((ele) => (
-                            <Option value={ele.slug} key={ele.slug}>{ele.name}</Option>
-                        ))}
-                    </Select>
+                <Grid item xs={12}>
+                    <FormControl fullWidth>
+                        <InputLabel id="demo-simple-select-label" sx={{background: grey[50], px: 1}}>Escolha a categoria</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            variant="outlined"
+                            color="primary"
+                            name="category"
+                            id="category"
+                            value={note.category}
+                            onChange={(e: SelectChangeEvent) => {handleChange('category', e.target.value as string)}}
+                        >
+                            {categories.map((ele) => (
+                                <MenuItem value={ele.slug} key={ele.slug}>{ele.name}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                 </Grid>
-                <Grid item xs={12} md={12} sm={12}>
-                    <input type="submit" value="Salvar" disabled={loading} />
+                <Grid item xs={12}>
+                    <Button variant="contained" type="submit" disabled={loading}>
+                        Salvar
+                    </Button>
                     <br />
                     {loading && 'salvando'}
                 </Grid>

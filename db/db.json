@@ -63,7 +63,7 @@
     {
       "title": "New note 2",
       "details": "New note 2",
-      "category": "",
+      "category": "todos",
       "id": 11
     },
     {
@@ -71,6 +71,18 @@
       "details": "Criação de nova nota agora com o redirect pelo useNavigate do react-router-dom.",
       "category": "work",
       "id": 12
+    },
+    {
+      "title": "Aqui vem o texto da nota",
+      "details": "Aqui vem o corpo da nota. Sem formatação mesmo :D!!!",
+      "category": "work",
+      "id": 13
+    },
+    {
+      "title": "Mais uma nota com categoria nova",
+      "details": "Corpo da nota com categoria nova!!",
+      "category": "work",
+      "id": 14
     }
   ],
   "categories": [
