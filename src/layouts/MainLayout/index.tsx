@@ -27,6 +27,7 @@ import { grey } from '@mui/material/colors';
 import { sideBarListA, sideBarListB } from './sideBarList';
 
 import Copyright from 'src/components/Copyright';
+import appVersion from 'src/utils/getAppVersion';
 
 const drawerWidth = 240;
 
@@ -141,7 +142,7 @@ const MainLayout: React.FC = (): JSX.Element => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+            Mini variant drawer ({appVersion})
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>

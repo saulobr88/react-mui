@@ -1,9 +1,9 @@
 # Lista de tarefas para fazer
 
-- Adicionar as opções de categorias para as notas, deve ser uma entidade do json-server [Feito]
-- Adicionar o Material UI [Feito]
-- Estilizar utilizando Material UI [Feito]
-- Adicionar o link para ler a nota individualmente?
-- Adicionar login e cadastro de usuário?
-- Adicionar suporte para tokens JWT?
-- Adicionar Axios ao invés de fetch API?
+- [Pendente] Adicionar Axios ao invés de fetch API
+- [Pendente] Adicionar suporte para tokens JWT
+- [Pendente] Adicionar o link para ler a nota individualmente
+- [Pendente] Adicionar login e cadastro de usuário
+- [Pendente] Adicionar testes unitários
+- [Pendente] Adicionar testes de integração
+- [Pendente] Adicionar testes End 2 End (E2E)
